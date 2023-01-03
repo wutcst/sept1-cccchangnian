@@ -9,7 +9,7 @@
  * 目前版本1.0下的字符串数组validCommands包含go,quit,help三条命令
  *
  * @author  林日奋 软件2002 WHUT
- * @version 1.1 2023.01.02
+ * @version 2.2 2023.01.02
  */
 
 

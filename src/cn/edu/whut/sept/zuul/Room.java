@@ -7,7 +7,7 @@
  * 出口被标上了北，东，南，西。对于每个方向，房间存储一个参考到隔壁房间，如果那个方向没有出口则为空。
  *
  * @author  林日奋 软件2002 WHUT
- * @version 1.1 2023.01.02
+ * @version 2.2 2023.01.02
  */
 
 package cn.edu.whut.sept.zuul;
@@ -30,8 +30,7 @@ public class Room
      * “description”类似于"outside the main entrance of the university"或"in a lecture theater"。
      * @param description 房间的描述.
      */
-    public Room(String description)
-    {
+    public Room(String description) {
         this.description = description;
         exits = new HashMap<>();
         items = new HashMap<String, Item>();
@@ -44,30 +43,29 @@ public class Room
      * @ param south 南出口.
      * @ param west 西出口.
      */
-    public void setExit(String direction, Room neighbor)
-    {
+    public void setExit(String direction, Room neighbor) {
         exits.put(direction, neighbor);
     }
 
     /**
      * @return 返回这个房间的短描述.
      */
-    public String getShortDescription()
-    {
+    public String getShortDescription() {
         return description;
     }
 
     /**
      * @return 返回这个房间的长描述.
      */
-    public String getLongDescription()
-    {
+    public String getLongDescription() {
         return "You are " + description + ".\n" + getExitString();
     }
 
 
-    private String getExitString()
-    {
+    /**
+     * @return 返回这个房间的出口描述.
+     */
+    private String getExitString() {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
@@ -76,16 +74,25 @@ public class Room
         return returnString;
     }
 
-    public Room getExit(String direction)
-    {
+    /**
+     * @return 返回这个房间的出口对应的房间.
+     */
+    public Room getExit(String direction) {
         return exits.get(direction);
     }
 
 
+    /**
+     * 将某件物品Item放进该房间.
+     */
     public void putItem(Item item) {
         items.put(item.getName(), new Item(item.getName(),item.getDescription(), item.getWeight()));
     }
 
+    /**
+     * 从房间中移除某物品（被捡起等等）。
+     * @return 返回从这个房间移除的room.
+     */
     public Item removeItem(String name) throws ItemNotFoundException {
         if (items.containsKey(name)) {
             Item returnItem = items.get(name);
@@ -96,8 +103,10 @@ public class Room
         }
     }
 
-    public String lookDescription()
-    {
+    /**
+     * @return 返回look命令所需的字符串描述.
+     */
+    public String lookDescription() {
         StringBuilder itemsToString = new StringBuilder("");
         for (Item value : items.values()) {
             itemsToString.append("- " + value.getName() + ", " + value.getDescription() + ", " + value.getWeight() + "kg"
@@ -108,6 +117,10 @@ public class Room
                 + "Items in this room: \n" + itemsToString;
     }
 
+
+    /**
+     * 打印当前所处房间的所有物品及物品总重量.
+     */
     public void showItemsInCurrentRoom(){
         StringBuilder itemsToString = new StringBuilder("");
         double totalWeight = 0;

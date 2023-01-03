@@ -11,7 +11,7 @@
  * 它根据已知命令检查用户输入，如果输入不是已知命令之一，则返回标记为未知命令的命令对象。
  *
  * @author  林日奋 软件2002 WHUT
- * @version 1.1 2023.01.02
+ * @version 2.2 2023.01.02
  */
 
 package cn.edu.whut.sept.zuul;

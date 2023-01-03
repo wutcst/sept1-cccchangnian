@@ -9,7 +9,7 @@
  * 接收用户输入，并将用户输入转换成命令后开始运行游戏。
  *
  * @author  林日奋 软件2002 WHUT
- * @version 1.1 2023.01.02
+ * @version 2.2 2023.01.02
  */
 package cn.edu.whut.sept.zuul;
 
@@ -39,6 +39,9 @@ public class Game
         player = new Player("player_1",outside,0);
     }
 
+    public Player getPlayer(){
+        return this.player;
+    }
     /**
      * 创建所有房间对象并连接其出口用以构建迷宫.
      */
@@ -108,7 +111,7 @@ public class Game
      * @param command 待处理的游戏指令，由解析器从用户输入内容生成.
      * @return 如果执行的是游戏结束指令，则返回true，否则返回false.
      */
-    private boolean processCommand(Command command)
+    public boolean processCommand(Command command)
     {
         boolean wantToQuit = false;
 
@@ -233,6 +236,9 @@ public class Game
     }
 
 
+    /**
+     * 创建所有物品并将其放入所在房间.
+     */
     private void createItems(){
         Item item1 = new Item("item_1","This is item_1",10.0);
         Item item2 = new Item("item_2","This is item_2",20.0);

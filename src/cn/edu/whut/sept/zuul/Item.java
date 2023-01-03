@@ -1,3 +1,13 @@
+/**
+ * 该类Item 物品-冒险游戏中的物品.
+ *
+ * 这个类用于处理游戏中使用的所有物品。
+ * 主要声明并处理物品的相关逻辑
+ *
+ * @author  林日奋 软件2002 WHUT
+ * @version 2.2 2023.01.02
+ */
+
 package cn.edu.whut.sept.zuul;
 
 public class Item {
@@ -29,10 +39,16 @@ public class Item {
     }
 
 
+    /**
+     * 返回Item的重量.
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * 返回Item的整体介绍字符串.
+     */
     @Override
     public String toString() {
         return "Item{" +
