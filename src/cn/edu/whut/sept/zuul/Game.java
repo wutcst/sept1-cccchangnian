@@ -280,8 +280,9 @@ public class Game
         }
     }
 
+
     /**
-     * 执行take指令，从当前房间捡起指定Item放入背包。
+     * 执行take指令，从当前房间捡起物品并放入玩家背包。
      */
     private void takeItem(Command command) throws ItemNotFoundException, ItemTooHeavyException {
         String itemFromCommand = command.getSecondWord();
@@ -295,6 +296,9 @@ public class Game
         }
     }
 
+    /**
+     * 执行drop指令，从当玩家背包丢弃物品到当前房间内。
+     */
     private void dropItem(Command command) throws ItemNotFoundException {
         String itemFromCommand = command.getSecondWord();
         Item newItem = null;
