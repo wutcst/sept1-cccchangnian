@@ -12,7 +12,9 @@
 
 package cn.edu.whut.sept.zuul;
 
+import cn.edu.whut.sept.zuul.exceptions.ItemNotFoundException;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
@@ -21,14 +23,18 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
 
+    private HashMap <String, Item> items;
+
     /**
      * 创建一个描述为 “description” 的房间。最初，它没有出口。
      * “description”类似于"outside the main entrance of the university"或"in a lecture theater"。
      * @param description 房间的描述.
      */
-    public Room(String description) {
+    public Room(String description)
+    {
         this.description = description;
         exits = new HashMap<>();
+        items = new HashMap<String, Item>();
     }
 
     /**
@@ -38,28 +44,30 @@ public class Room
      * @ param south 南出口.
      * @ param west 西出口.
      */
-    public void setExit(String direction, Room neighbor) {
+    public void setExit(String direction, Room neighbor)
+    {
         exits.put(direction, neighbor);
     }
 
     /**
      * @return 返回这个房间的短描述.
      */
-    public String getShortDescription() {
+    public String getShortDescription()
+    {
         return description;
     }
 
     /**
      * @return 返回这个房间的长描述.
      */
-    public String getLongDescription() {
+    public String getLongDescription()
+    {
         return "You are " + description + ".\n" + getExitString();
     }
 
-    /**
-     * @return 返回这个房间的出口字符串描述.
-     */
-    private String getExitString() {
+
+    private String getExitString()
+    {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
@@ -68,13 +76,50 @@ public class Room
         return returnString;
     }
 
-    /**
-     * @return 返回这个房间出口房间.
-     */
-    public Room getExit(String direction) {
+    public Room getExit(String direction)
+    {
         return exits.get(direction);
     }
 
+
+    public void putItem(Item item) {
+        items.put(item.getName(), new Item(item.getName(),item.getDescription(), item.getWeight()));
+    }
+
+    public Item removeItem(String name) throws ItemNotFoundException {
+        if (items.containsKey(name)) {
+            Item returnItem = items.get(name);
+            items.remove(name);
+            return returnItem;
+        } else {
+            throw new ItemNotFoundException("This item does not exist!");
+        }
+    }
+
+    public String lookDescription()
+    {
+        StringBuilder itemsToString = new StringBuilder("");
+        for (Item value : items.values()) {
+            itemsToString.append("- " + value.getName() + ", " + value.getDescription() + ", " + value.getWeight() + "kg"
+                    + "\n");
+        }
+
+        return "You are " + description + ".\n" + getExitString() + "\n"
+                + "Items in this room: \n" + itemsToString;
+    }
+
+    public void showItemsInCurrentRoom(){
+        StringBuilder itemsToString = new StringBuilder("");
+        double totalWeight = 0;
+        for (Item value : items.values()) {
+            totalWeight = totalWeight + value.getWeight();
+            itemsToString.append("- " + value.getName() + ", " + value.getDescription() + ", " + value.getWeight() + "kg");
+        }
+        String printString = "Items in this room: \n" + itemsToString;
+        System.out.println(printString);
+        System.out.println("This room has the total weight of " + totalWeight + "kg");
+        System.out.println();
+    }
 }
 
 

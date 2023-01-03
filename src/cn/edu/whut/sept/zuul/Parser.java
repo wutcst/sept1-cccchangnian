@@ -26,7 +26,8 @@ public class Parser
     /**
      * 创建一个从终端窗口读取的解析器.
      */
-    public Parser() {
+    public Parser()
+    {
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
@@ -35,7 +36,8 @@ public class Parser
      * 对输入的命令进行分词解析。得到一个或两个词
      * @return 将命令作为command类的对象返回.
      */
-    public Command getCommand() {
+    public Command getCommand()
+    {
         String inputLine; // 会包含整行字符串
         String word1 = null;
         String word2 = null;
@@ -66,7 +68,8 @@ public class Parser
      * 对所有的合法命令进行展示
      * 主要是调用Command类的 showAll
      */
-    public void showCommands() {
+    public void showCommands()
+    {
         commands.showAll();
     }
 }

@@ -28,7 +28,8 @@ public class Command
      * @param firstWord 命令的第一个词。如果命令为 Null 则没有被认出来。
      * @param secondWord 命令的第二个词.
      */
-    public Command(String firstWord, String secondWord) {
+    public Command(String firstWord, String secondWord)
+    {
         commandWord = firstWord;
         this.secondWord = secondWord;
     }
@@ -38,7 +39,8 @@ public class Command
      * 如果命令未被识别，则返回结果为 NULL
      * @return 命令的控制词（两个词中的第一个）.
      */
-    public String getCommandWord() {
+    public String getCommandWord()
+    {
         return commandWord;
     }
 
@@ -46,21 +48,24 @@ public class Command
      * @return 命令的第二个词
      * 如果命令没有第二个词，则返回结果为 NULL
      */
-    public String getSecondWord() {
+    public String getSecondWord()
+    {
         return secondWord;
     }
 
     /**
      * @return 如果命令被正确识别了，返回 true,否则返回 false
      */
-    public boolean isUnknown() {
+    public boolean isUnknown()
+    {
         return (commandWord == null);
     }
 
     /**
      * @return 如果命令有第二个词，则返回 true，否则返回 false.
      */
-    public boolean hasSecondWord() {
+    public boolean hasSecondWord()
+    {
         return (secondWord != null);
     }
 }

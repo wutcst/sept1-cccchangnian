@@ -19,14 +19,15 @@ public class CommandWords
 {
     // 保存所有有效命令字的常量数组
     private static final String[] validCommands = {
-            "go", "quit", "help"
+            "go", "quit", "help", "look", "take", "drop","back","items","eatCookie","backStep"
     };
 
     /**
      * 构造函数，初始化该类
      * 目前无动作
      */
-    public CommandWords() {
+    public CommandWords()
+    {
         // nothing to do at the moment...
     }
 
@@ -35,7 +36,8 @@ public class CommandWords
      * @return 如果命令是合法的，返回 true，否则返回 false
      * 遍历匹配有效的字符数组 validCommands 即可
      */
-    public boolean isCommand(String aString) {
+    public boolean isCommand(String aString)
+    {
         for(int i = 0; i < validCommands.length; i++) {
             if(validCommands[i].equals(aString))
                 return true;
@@ -48,7 +50,8 @@ public class CommandWords
      * 打印所有的有效命令.
      * 遍历并打印有效的字符数组 validCommands 即可
      */
-    public void showAll() {
+    public void showAll()
+    {
         for(String command: validCommands) {
             System.out.print(command + "  ");
         }
