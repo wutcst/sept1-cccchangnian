@@ -367,7 +367,9 @@ public class Game
         }
     }
 
-    //在lab设置随机传送到pub或theater或office
+    /**
+     * 实现房间随机传输功能。
+     */
     private void send(){
         Random random = new Random();
         int randNum = random.nextInt(3);
