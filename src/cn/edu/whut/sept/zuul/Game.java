@@ -311,6 +311,9 @@ public class Game
         }
     }
 
+    /**
+     * 执行items指令，打印显示当前房间内和玩家背包中所有物件及总重量。
+     */
     private void printItems(){
         //打印当前房间内所有的物件及总重量
         player.getCurrentRoom().showItemsInCurrentRoom();
