@@ -8,21 +8,26 @@
  * Game类的实例将创建并初始化所有其他类:它创建所有房间，并将它们连接成迷宫；它创建解析器
  * 接收用户输入，并将用户输入转换成命令后开始运行游戏。
  *
- * @author  Michael Kölling and David J. Barnes
- * @version 1.0
+ * @author  林日奋 软件2002 WHUT
+ * @version 1.1 2023.01.02
  */
 package cn.edu.whut.sept.zuul;
+
+
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Game
 {
     private Parser parser;
     private Room currentRoom;
 
+
     /**
      * 创建游戏并初始化内部数据和解析器.
      */
-    public Game()
-    {
+    public Game() {
         createRooms();
         parser = new Parser();
     }
@@ -30,8 +35,7 @@ public class Game
     /**
      * 创建所有房间对象并连接其出口用以构建迷宫.
      */
-    private void createRooms()
-    {
+    private void createRooms() {
         Room outside, theater, pub, lab, office;
 
         // create the rooms
@@ -61,8 +65,7 @@ public class Game
     /**
      *  游戏主控循环，直到用户输入退出命令后结束整个程序.
      */
-    public void play()
-    {
+    public void play() {
         printWelcome();
 
         // Enter the main command loop.  Here we repeatedly read commands and
@@ -104,7 +107,9 @@ public class Game
         }
 
         String commandWord = command.getCommandWord();
-        if (commandWord.equals("help")) {
+
+        //需要修改的部分代码
+         /* if (commandWord.equals("help")) {
             printHelp();
         }
         else if (commandWord.equals("go")) {
@@ -112,7 +117,16 @@ public class Game
         }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
+        }*/
+
+        //将多if条件判断改为switch语句
+        switch (commandWord){
+            case "help": printHelp(); break;
+            case "go": goRoom(command); break;
+            case "quit": wantToQuit = quit(command); break;
+
         }
+
         // else command not recognised.
         return wantToQuit;
     }
@@ -123,8 +137,7 @@ public class Game
      * 执行help指令，在终端打印游戏帮助信息.
      * 此处会输出游戏中用户可以输入的命令列表
      */
-    private void printHelp()
-    {
+    private void printHelp() {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
         System.out.println();
@@ -136,8 +149,7 @@ public class Game
      * 执行go指令，向房间的指定方向出口移动，如果该出口连接了另一个房间，则会进入该房间，
      * 否则打印输出错误提示信息.
      */
-    private void goRoom(Command command)
-    {
+    private void goRoom(Command command) {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
             System.out.println("Go where?");
@@ -172,4 +184,5 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+
 }
