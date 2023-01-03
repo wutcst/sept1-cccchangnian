@@ -1,0 +1,60 @@
+[33mcommit fb3290bed42c482c88b802d07df971fb9270b385[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 13:11:58 2023 +0800
+
+    Version1.5_添加take功能
+
+[33mcommit aeae597840a758cc910fa89d5b92b521e87d8ead[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 12:39:07 2023 +0800
+
+    Version1.4_添加back功能
+
+[33mcommit 0b0515384204a51325166762e91e9e5daf674cd9[m
+Author: RiFenLin <105163591+cccchangnian@users.noreply.github.com>
+Date:   Tue Jan 3 12:34:51 2023 +0800
+
+    Delete 添加back功能.png
+
+[33mcommit ef186e9ae0703f22e61e6c80b08dc12f2414dce6[m
+Merge: 8899507 27c9316
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 12:29:52 2023 +0800
+
+    Merge branch 'master' of github.com:wutcst/sept1-cccchangnian
+
+[33mcommit 8899507a781f2a71e127982f61be1af5b57117c1[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 11:42:07 2023 +0800
+
+    Version1.3_添加look功能
+
+[33mcommit 88aca22201e4aef5da02e13c90267b5535e5e3c2[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 11:39:26 2023 +0800
+
+    Version1.3_添加back功能
+
+[33mcommit 27c9316e9834946bf17ec8ab1471cc2e28bda4bb[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 11:24:20 2023 +0800
+
+    Version1.2_扩充和维护样例工程，重构代码
+
+[33mcommit 9d0d2899f1845cab58d274a76d99b5023d50c738[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 11:06:09 2023 +0800
+
+    Version1.2_扩充和维护样例工程，重构代码
+
+[33mcommit 77a88713028b022ef7d0f47a29bd1f5cb7837547[m
+Author: ccccn_Lin <2864710463@qq.com>
+Date:   Tue Jan 3 10:07:33 2023 +0800
+
+    Version1.1_阅读和描述样例工程，标注代码
+
+[33mcommit cf66244c7ffd13685b66902e40fcabda92c9b7f4[m
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Tue Dec 6 04:59:42 2022 +0000
+
+    Initial commit
