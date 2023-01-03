@@ -321,6 +321,9 @@ public class Game
         player.printItemsInBags();
     }
 
+    /**
+     * 在某些房间中随机增加cookie物件
+     */
     private void randomCreateCookie(){
         Item item11 = new Item("cookie_1","This is a cookie named cookie_1",5.0);
         Item item12 = new Item("cookie_2","This is a cookie named cookie_2",5.0);
@@ -334,6 +337,9 @@ public class Game
         places[randNum2].putItem(item12);
     }
 
+    /**
+     * 执行eatCookie指令，将所在房间中的cookie吃掉并增加背包容量。
+     */
     private void eatCookie(Command command)throws ItemNotFoundException{
         String itemFromCommand = command.getSecondWord();
         Item newItem = player.getCurrentRoom().removeItem(itemFromCommand);
