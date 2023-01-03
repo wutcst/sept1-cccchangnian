@@ -349,7 +349,9 @@ public class Game
         }
     }
 
-    //这个方法还有问题
+    /**
+     * 执行backStep指令，实现高级的回退命令。
+     */
     private void backStep(){
         for(int i=player.roomPath.size()-1; i>=0; i--){
             Room nextroom = player.roomPath.get(i);
